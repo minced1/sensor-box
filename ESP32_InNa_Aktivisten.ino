@@ -49,6 +49,7 @@ LiquidCrystal_I2C lcd = LiquidCrystal_I2C(I2C_Address, 16, 2);
 
 // Set default log intervall
 int timedelta_ms = 10000;  // exact loop time in milliseconds
+
 // Define log file
 File logFile;
 
@@ -109,7 +110,6 @@ void initSD() {
 
 
 void printLCD(float air_temperature, float air_humidity, float soil_temperature, float soil_humidity) {
-  
   // Check if readings are valid
   if (isnan(air_humidity) || isnan(air_temperature)) {
     lcd.print("Failed to read air temperature ");
@@ -169,7 +169,6 @@ void logSD(float air_temperature, float air_humidity, float soil_temperature, fl
 }
 
 void logWiFi(float air_temperature, float air_humidity, float soil_temperature, float soil_humidity) {
-//WiFiClient client = server.available();  // Listen for incoming clients
   if (client && client.connected()) {
 
       String message = "";
@@ -257,13 +256,11 @@ void loop() {
 
   //Serial.print("log: ");
   //Serial.println(millis());
+
   delay(111);
   while(loopStart + timedelta_ms > millis()) {
   //delay(1000);
   }
-
-
-  
 }
 
 
