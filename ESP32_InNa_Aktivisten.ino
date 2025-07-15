@@ -171,13 +171,7 @@ void logSD(float air_temperature, float air_humidity, float soil_temperature, fl
 void logWiFi(float air_temperature, float air_humidity, float soil_temperature, float soil_humidity) {
 //WiFiClient client = server.available();  // Listen for incoming clients
   if (client && client.connected()) {
-    //Serial.println("Client connected!");
-    
 
-    // TODO: move sensor reads into wifi while loop, define air_temperature etc. as global variables
-
-   // while (client.connected()) {
-      // Send a message every 2 seconds
       String message = "";
       message.concat(air_temperature);
       message.concat(",");
@@ -190,10 +184,6 @@ void logWiFi(float air_temperature, float air_humidity, float soil_temperature, 
 
       client.print(message);
       Serial.println("Sent: " + message);
-    //}
-
-    //client.stop();
-    //Serial.println("Client disconnected.");
   }
 }
 
